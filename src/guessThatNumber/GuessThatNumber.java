@@ -6,8 +6,10 @@ public class GuessThatNumber {
 		// TODO Auto-generated method stub
 		Scanner scan = new Scanner (System.in);
 		Random rando = new Random ();
+		//generates random number from 1-100
 		int randomNum = rando.nextInt(100);
 		boolean win = false;
+	
 		int tryCount=0;
 		int guess;
 		
@@ -18,11 +20,13 @@ public class GuessThatNumber {
 		while (win==false){
 			
 			System.out.println("Enter a number (1-100):");
-			guess=scan.nextInt();
+			guess= Validator.getValidInt(1, 100);
+			//counts the number of times it took the user to guess the correct number
 			tryCount++;
 				
 		if (guess == randomNum){
 			win=true;
+			//winning message
 			System.out.println("YEAH!!! You guessed the right number!!!");
 			System.out.println("The number was "+randomNum+"!");
 			System.out.println("It only took you "+tryCount+" tries to guess the right number!");
@@ -35,6 +39,6 @@ public class GuessThatNumber {
 		}
 
 	}
-		
+	scan.close();	
 }
 }
